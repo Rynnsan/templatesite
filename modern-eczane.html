@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Eczanesi - Güvenilir Sağlık Danışmanınız</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      /* Custom Tailwind Configuration */
+      :root {
+        --primary-blue: #0055ff;
+        --soft-green: #10b981;
+        --light-bg: #f8fafc;
+        --dark-text: #1e293b;
+        --border-light: #e2e8f0;
+      }
+
+      /* Smooth Transitions */
+      * {
+        transition: all 0.3s ease;
+      }
+
+      /* Hero Gradient */
+      .hero-gradient {
+        background: linear-gradient(135deg, #0055ff 0%, #0088ff 100%);
+      }
+
+      /* Card Hover Effect */
+      .card-hover {
+        transform: translateY(0);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 85, 255, 0.15);
+      }
+
+      /* Button Styles */
+      .btn-primary {
+        background: linear-gradient(135deg, #0055ff 0%, #0044cc 100%);
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.75rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 85, 255, 0.25);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 85, 255, 0.35);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: #0055ff;
+        border: 2px solid #0055ff;
+        font-weight: 600;
+        padding: 0.75rem 1.75rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        background: #0055ff;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Floating Animation */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <!-- ============================================ -->
+    <!-- HEADER / NAV SECTION -->
+    <!-- ============================================ -->
+    <header
+      class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center text-white font-bold text-lg"
+            >
+              💊
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-gray-900">Template Eczanesi</h1>
+              <p class="text-xs text-gray-500">Güvenilir Sağlık Danışmanınız</p>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              href="#hizmetler"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              >Hizmetler</a
+            >
+            <a
+              href="#nobetci"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              >Nöbetçi</a
+            >
+            <a
+              href="#blog"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              >Rehber</a
+            >
+            <a
+              href="#iletisim"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              >İletişim</a
+            >
+          </nav>
+
+          <!-- Contact Info & CTA -->
+          <div class="hidden lg:flex items-center gap-6">
+            <div class="text-right">
+              <p class="text-xs text-gray-500">Acil Hatt</p>
+              <p class="text-lg font-bold text-blue-600">(555) 123-4567</p>
+            </div>
+            <button class="btn-primary">Nöbetçi Eczane</button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden" onclick="toggleMobileMenu()">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="hero-gradient text-white py-20 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="space-y-8">
+            <div>
+              <h2 class="text-5xl lg:text-6xl font-bold mb-4">
+                Lorem Ipsum<br />Dolor Sit
+              </h2>
+              <p class="text-xl text-blue-100">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.
+              </p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="btn-primary bg-white text-blue-600 hover:bg-gray-100"
+              >
+                Hızlı Randevu Al
+              </button>
+              <button
+                class="btn-secondary border-white text-white hover:bg-white hover:text-blue-600"
+              >
+                Danışma Yap
+              </button>
+            </div>
+
+            <!-- Info Stats -->
+            <div class="grid grid-cols-3 gap-4 pt-8 border-t border-blue-400">
+              <div>
+                <p class="text-3xl font-bold">15+</p>
+                <p class="text-blue-100 text-sm">Lorem</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold">5K+</p>
+                <p class="text-blue-100 text-sm">Lorem</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold">24/7</p>
+                <p class="text-blue-100 text-sm">Lorem</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Image Placeholder -->
+          <div class="relative">
+            <div
+              class="bg-blue-400 bg-opacity-30 rounded-2xl p-12 h-96 flex items-center justify-center"
+            >
+              <div class="text-center text-blue-200">
+                <svg
+                  class="w-32 h-32 mx-auto mb-4 float-animation"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"
+                  />
+                </svg>
+                <p class="text-lg font-semibold">Profesyonel Hizmet</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SERVICES SECTION -->
+    <!-- ============================================ -->
+    <section id="hizmetler" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Lorem Ipsum Dolor
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service Card 1 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.452a2 2 0 00-1.141.341l-.1.066a2 2 0 00-.7 2.989l.853 1.283a2 2 0 002.694.653l1.guaranteed.5a2 2 0 00.79-2.79z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Lorem Dolor</h3>
+            <p class="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur.
+            </p>
+            <button
+              class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2"
+            >
+              Detaylı Bilgi
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Lorem Ipsum</h3>
+            <p class="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur.
+            </p>
+            <button
+              class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2"
+            >
+              Detaylı Bilgi
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Lorem Dolor</h3>
+            <p class="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur.
+            </p>
+            <button
+              class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2"
+            >
+              Detaylı Bilgi
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-yellow-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Lorem Ipsum</h3>
+            <p class="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur.
+            </p>
+            <button
+              class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2"
+            >
+              Detaylı Bilgi
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-red-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-red-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+              Lorem Dolor Sit
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur.
+            </p>
+            <button
+              class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2"
+            >
+              Detaylı Bilgi
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Service Card 6 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-teal-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-teal-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Lorem Dolor</h3>
+            <p class="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur.
+            </p>
+            <button
+              class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2"
+            >
+              Detaylı Bilgi
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- NÖBETÇI ECZANE SECTION -->
+    <!-- ============================================ -->
+    <section id="nobetci" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Calendar Widget -->
+          <div class="lg:col-span-2">
+            <h2 class="text-4xl font-bold text-gray-900 mb-8">
+              Lorem Ipsum Dolor
+            </h2>
+
+            <div class="bg-gray-50 rounded-xl p-8 border border-gray-200">
+              <div class="grid grid-cols-7 gap-2 mb-8">
+                <div class="text-center font-semibold text-gray-600 text-sm">
+                  Pzt
+                </div>
+                <div class="text-center font-semibold text-gray-600 text-sm">
+                  Sal
+                </div>
+                <div class="text-center font-semibold text-gray-600 text-sm">
+                  Çar
+                </div>
+                <div class="text-center font-semibold text-gray-600 text-sm">
+                  Perş
+                </div>
+                <div class="text-center font-semibold text-gray-600 text-sm">
+                  Cum
+                </div>
+                <div class="text-center font-semibold text-gray-600 text-sm">
+                  Cmt
+                </div>
+                <div class="text-center font-semibold text-gray-600 text-sm">
+                  Paz
+                </div>
+              </div>
+
+              <div class="grid grid-cols-7 gap-2">
+                <!-- Days -->
+                <div class="p-3 text-center text-gray-400 text-sm">29</div>
+                <div class="p-3 text-center text-gray-400 text-sm">30</div>
+                <div
+                  class="p-3 text-center bg-blue-100 text-blue-600 font-semibold rounded-lg text-sm"
+                >
+                  1
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  2
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  3
+                </div>
+                <div
+                  class="p-3 text-center bg-green-100 text-green-600 font-semibold rounded-lg text-sm"
+                >
+                  4
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  5
+                </div>
+
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  6
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  7
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  8
+                </div>
+                <div
+                  class="p-3 text-center bg-green-100 text-green-600 font-semibold rounded-lg text-sm"
+                >
+                  9
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  10
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  11
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  12
+                </div>
+
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  13
+                </div>
+                <div
+                  class="p-3 text-center bg-green-100 text-green-600 font-semibold rounded-lg text-sm"
+                >
+                  14
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  15
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  16
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  17
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  18
+                </div>
+                <div
+                  class="p-3 text-center bg-white text-gray-900 text-sm hover:bg-gray-100 cursor-pointer"
+                >
+                  19
+                </div>
+              </div>
+
+              <p class="text-sm text-gray-500 mt-6 text-center">
+                <span
+                  class="inline-block w-4 h-4 bg-blue-100 rounded mr-2"
+                ></span>
+                Bugün
+                <span
+                  class="inline-block w-4 h-4 bg-green-100 rounded mr-2 ml-4"
+                ></span>
+                Nöbetçi Eczanemiz
+              </p>
+            </div>
+          </div>
+
+          <!-- Upcoming Schedule -->
+          <div class="lg:col-span-1">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+              Lorem Ipsum Dolor
+            </h3>
+
+            <div class="space-y-4">
+              <!-- Schedule Item 1 -->
+              <div class="border-l-4 border-green-500 bg-green-50 p-4 rounded">
+                <p class="font-semibold text-gray-900">Lorem</p>
+                <p class="text-sm text-gray-600 mt-1">Lorem Ipsum</p>
+                <p class="text-sm text-green-600 font-semibold mt-2">Lorem</p>
+                <p class="text-xs text-gray-500 mt-2">Lorem</p>
+              </div>
+
+              <!-- Schedule Item 2 -->
+              <div class="border-l-4 border-blue-400 bg-blue-50 p-4 rounded">
+                <p class="font-semibold text-gray-900">Sonraki Hafta</p>
+                <p class="text-sm text-gray-600 mt-1">11 Ocak (Çarşamba)</p>
+                <p class="text-sm text-blue-600 font-semibold mt-2">
+                  Merkez Eczanesi
+                </p>
+                <p class="text-xs text-gray-500 mt-2">Açık: 08:00 - 22:00</p>
+              </div>
+
+              <!-- Schedule Item 3 -->
+              <div class="border-l-4 border-gray-300 bg-gray-50 p-4 rounded">
+                <p class="font-semibold text-gray-900">Diğer Hafta</p>
+                <p class="text-sm text-gray-600 mt-1">18 Ocak (Çarşamba)</p>
+                <p class="text-sm text-gray-700 font-semibold mt-2">
+                  Sağlık Eczanesi
+                </p>
+                <p class="text-xs text-gray-500 mt-2">Açık: 08:00 - 22:00</p>
+              </div>
+            </div>
+
+            <button class="w-full btn-primary mt-6">Tüm Nöbetleri Gör</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOG / HEALTH GUIDE SECTION -->
+    <!-- ============================================ -->
+    <section id="blog" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Lorem Dolor</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Blog Card 1 -->
+          <article
+            class="card-hover bg-white rounded-xl overflow-hidden border border-gray-200"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
+            >
+              <svg
+                class="w-24 h-24 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                ></path>
+              </svg>
+            </div>
+            <div class="p-6">
+              <p class="text-sm text-blue-600 font-semibold mb-2">
+                Lorem Ipsum
+              </p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Lorem Ipsum Dolor
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing.
+              </p>
+              <button class="text-blue-600 font-semibold hover:text-blue-700">
+                Devamını Oku →
+              </button>
+            </div>
+          </article>
+
+          <!-- Blog Card 2 -->
+          <article
+            class="card-hover bg-white rounded-xl overflow-hidden border border-gray-200"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center"
+            >
+              <svg
+                class="w-24 h-24 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                ></path>
+              </svg>
+            </div>
+            <div class="p-6">
+              <p class="text-sm text-green-600 font-semibold mb-2">
+                Lorem Ipsum
+              </p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Lorem Dolor Sit
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing.
+              </p>
+              <button class="text-blue-600 font-semibold hover:text-blue-700">
+                Devamını Oku →
+              </button>
+            </div>
+          </article>
+
+          <!-- Blog Card 3 -->
+          <article
+            class="card-hover bg-white rounded-xl overflow-hidden border border-gray-200"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center"
+            >
+              <svg
+                class="w-24 h-24 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.354 15.354A9 9 0 015.646 5.646 9.001 9.001 0 0020.354 15.354z"
+                ></path>
+              </svg>
+            </div>
+            <div class="p-6">
+              <p class="text-sm text-purple-600 font-semibold mb-2">
+                Lorem Ipsum
+              </p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Lorem Dolor Sit
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing.
+              </p>
+              <button class="text-blue-600 font-semibold hover:text-blue-700">
+                Devamını Oku →
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center mt-12">
+          <button class="btn-primary">Tüm Makaleler</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTACT & MAP SECTION -->
+    <!-- ============================================ -->
+    <section id="iletisim" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-gray-900 mb-16 text-center">
+          Lorem Ipsum Dolor
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Contact Info -->
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Lorem Ipsum</h3>
+              <p class="text-gray-600 mb-8">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+
+            <!-- Contact Cards -->
+            <div class="space-y-6">
+              <!-- Phone -->
+              <div class="flex gap-4">
+                <div
+                  class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Telefon</p>
+                  <a
+                    href="tel:+905551234567"
+                    class="text-lg font-semibold text-gray-900 hover:text-blue-600"
+                  >
+                    (555) 123-4567
+                  </a>
+                  <p class="text-sm text-gray-500 mt-1">
+                    Pazartesi-Cumartesi: 08:00-22:00
+                  </p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex gap-4">
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">E-Posta</p>
+                  <a
+                    href="mailto:info@eczane.com"
+                    class="text-lg font-semibold text-gray-900 hover:text-blue-600"
+                  >
+                    info@eczane.com
+                  </a>
+                  <p class="text-sm text-gray-500 mt-1">Cevap süresi: 2 saat</p>
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="flex gap-4">
+                <div
+                  class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6 text-red-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Adres</p>
+                  <p class="text-lg font-semibold text-gray-900">
+                    Merkez Mahallesi, Sağlık Sok. No: 45<br />
+                    İstanbul, Türkiye
+                  </p>
+                  <button
+                    class="text-blue-600 font-semibold hover:text-blue-700 mt-2"
+                  >
+                    Haritada Aç
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div
+            class="rounded-xl overflow-hidden border border-gray-200 h-96 lg:h-auto"
+          >
+            <div
+              class="w-full h-full bg-gray-200 flex items-center justify-center"
+            >
+              <div class="text-center">
+                <svg
+                  class="w-16 h-16 text-gray-400 mx-auto mb-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6.553 3.276A1 1 0 0121 20.382V9.618a1 1 0 00-1.447-.894L15 11m0 0V5m0 8.618v4.764"
+                  ></path>
+                </svg>
+                <p class="text-gray-500">Google Haritalar</p>
+                <p class="text-sm text-gray-400 mt-1">Entegrasyon Alanı</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <!-- Brand -->
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center font-bold"
+              >
+                💊
+              </div>
+              <span class="font-bold text-lg">Template Eczanesi</span>
+            </div>
+            <p class="text-gray-400 text-sm">
+              Lorem ipsum dolor sit amet, consectetur adipiscing.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="font-bold mb-4">Hızlı Linkler</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                <a href="#hizmetler" class="hover:text-white">Hizmetler</a>
+              </li>
+              <li>
+                <a href="#nobetci" class="hover:text-white">Nöbetçi Eczane</a>
+              </li>
+              <li>
+                <a href="#blog" class="hover:text-white">Sağlık Rehberi</a>
+              </li>
+              <li><a href="#iletisim" class="hover:text-white">İletişim</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 class="font-bold mb-4">Hizmetlerimiz</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><a href="#" class="hover:text-white">İlaç Temini</a></li>
+              <li><a href="#" class="hover:text-white">Danışmanlık</a></li>
+              <li><a href="#" class="hover:text-white">Aşı Hizmeti</a></li>
+              <li><a href="#" class="hover:text-white">Kişisel Bakım</a></li>
+            </ul>
+          </div>
+
+          <!-- Hours -->
+          <div>
+            <h4 class="font-bold mb-4">Çalışma Saatleri</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                Pazartesi - Cumartesi<br /><span
+                  class="font-semibold text-white"
+                  >08:00 - 22:00</span
+                >
+              </li>
+              <li>
+                Pazar & Tatil<br /><span class="font-semibold text-white"
+                  >09:00 - 21:00</span
+                >
+              </li>
+              <li>
+                Acil<br /><span class="font-semibold text-white"
+                  >24/7 Açık</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">
+              &copy; 2026 Template Eczanesi. Tüm hakları saklıdır.
+            </p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+              <a href="#" class="text-gray-400 hover:text-white"
+                >Gizlilik Politikası</a
+              >
+              <a href="#" class="text-gray-400 hover:text-white"
+                >Kullanım Şartları</a
+              >
+              <a href="#" class="text-gray-400 hover:text-white">İletişim</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================ -->
+    <script>
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        // Mobile menu functionality
+        console.log("Mobile menu toggle");
+      }
+
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

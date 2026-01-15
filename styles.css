@@ -1,0 +1,636 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e8f4f8 0%, #f0f0f0 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR - Üstte Yatay Hizalanmış */
+.navbar {
+  background-color: #1a7e3a;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+  font-size: 1.5em;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #d4edda;
+}
+
+/* MAIN CONTAINER - İki Sütunlu Layout */
+.main-container {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* İÇERİK ALANI */
+.content {
+  flex: 2;
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+  color: #1a7e3a;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.content p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.highlight {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-left: 5px solid #1a7e3a;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+#unique {
+  background-color: #e7f3ff;
+  color: #0056b3;
+  padding: 15px;
+  border-left: 5px solid #0056b3;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* CSS Box Model Gösterimleri */
+.box-model-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.box {
+  background: linear-gradient(135deg, #e8f4f8 0%, #d4edda 100%);
+  border: 3px solid #1a7e3a;
+  text-align: center;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(26, 126, 58, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 15px;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(26, 126, 58, 0.25);
+}
+
+.box h3 {
+  margin: 15px 0 10px 0;
+  color: #1a7e3a;
+  font-size: 1.2em;
+}
+
+.box p {
+  margin: 10px 0;
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Padding Örnekleri */
+.padding-example-container {
+  margin: 20px 0;
+}
+
+.padding-example-container h3 {
+  color: #1a7e3a;
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.padding-small,
+.padding-medium,
+.padding-large {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffe7c9 100%);
+  border: 2px solid #1a7e3a;
+  border-radius: 8px;
+  margin: 10px 0;
+  color: #166534;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(26, 126, 58, 0.1);
+}
+
+.padding-small {
+  padding: 10px;
+}
+
+.padding-medium {
+  padding: 20px;
+}
+
+.padding-large {
+  padding: 40px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-box h3 {
+  color: #1a7e3a;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.sidebar-box p {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+/* FORM STİLLERİ */
+.form-section {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.form-section h2 {
+  color: #1a7e3a;
+  margin-bottom: 20px;
+}
+
+form {
+  background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+  border: 3px solid #1a7e3a;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(26, 126, 58, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #1a7e3a;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #d0d0d0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #1a7e3a;
+  box-shadow: 0 0 8px rgba(26, 126, 58, 0.2);
+}
+
+.checkbox-group {
+  margin: 15px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+input[type="checkbox"] {
+  margin-top: 5px;
+}
+
+button {
+  background: linear-gradient(135deg, #1a7e3a 0%, #155a2b 100%);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  width: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(26, 126, 58, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* FOOTER */
+.footer {
+  background-color: #1a7e3a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =============================================== */
+/* RESPONSIVE TASARIM - DESKTOP, TABLET, MOBİL */
+/* =============================================== */
+
+/* TABLET EKRANLAR (1024px ve altı) */
+@media (max-width: 1024px) {
+  body {
+    padding: 15px;
+  }
+
+  .navbar {
+    padding: 12px 15px;
+    gap: 15px;
+  }
+
+  .navbar h1 {
+    font-size: 1.3em;
+  }
+
+  .nav-menu {
+    gap: 15px;
+  }
+
+  .main-container {
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .content {
+    flex: 2;
+    padding: 20px;
+  }
+
+  .content h2 {
+    font-size: 1.5em;
+  }
+
+  .sidebar {
+    flex: 1;
+    gap: 15px;
+  }
+
+  .sidebar-box {
+    padding: 15px;
+  }
+
+  .sidebar-box h3 {
+    font-size: 1em;
+  }
+
+  .sidebar-box p {
+    font-size: 0.85em;
+  }
+
+  .box {
+    width: 180px;
+  }
+
+  .box h3 {
+    font-size: 1.1em;
+  }
+
+  .box p {
+    font-size: 12px;
+  }
+}
+
+/* MOBİL EKRANLAR (768px ve altı) */
+@media (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    padding: 10px;
+    height: auto;
+  }
+
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar h1 {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  .nav-menu {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .nav-menu a {
+    font-size: 0.9em;
+  }
+
+  /* İki sütundan tek sütuna dönüş */
+  .main-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .content {
+    flex: 1;
+    padding: 15px;
+    order: 1;
+  }
+
+  .content h2 {
+    font-size: 1.3em;
+    margin-top: 15px;
+    margin-bottom: 12px;
+  }
+
+  .content h2:first-child {
+    margin-top: 0;
+  }
+
+  .content p {
+    font-size: 0.9em;
+    margin-bottom: 12px;
+  }
+
+  .highlight,
+  #unique {
+    padding: 12px;
+    font-size: 0.9em;
+  }
+
+  /* Hizmetler kutuları dikey sıralama */
+  .box-model-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+  }
+
+  .box {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .box h3 {
+    font-size: 1em;
+    margin: 10px 0 8px 0;
+  }
+
+  .box p {
+    font-size: 0.85em;
+    margin: 8px 0;
+  }
+
+  /* Avantajlar bölümü */
+  .padding-example-container {
+    margin: 15px 0;
+  }
+
+  .padding-example-container h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+
+  .padding-small,
+  .padding-medium,
+  .padding-large {
+    margin: 8px 0;
+    font-size: 0.85em;
+  }
+
+  .padding-small {
+    padding: 8px;
+  }
+
+  .padding-medium {
+    padding: 12px;
+  }
+
+  .padding-large {
+    padding: 15px;
+  }
+
+  /* Form bölümü */
+  .form-section {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .form-section h2 {
+    font-size: 1.2em;
+  }
+
+  form {
+    padding: 15px;
+    border: 2px solid #1a7e3a;
+  }
+
+  label {
+    font-size: 0.9em;
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+
+  .checkbox-group {
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  /* Sidebar mobilde content altında görünür */
+  .sidebar {
+    flex: 1;
+    order: 2;
+    gap: 15px;
+  }
+
+  .sidebar-box {
+    padding: 15px;
+  }
+
+  .sidebar-box h3 {
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-box p {
+    font-size: 0.85em;
+    line-height: 1.4;
+  }
+
+  .footer {
+    padding: 15px;
+    font-size: 0.85em;
+  }
+}
+
+/* KÜÇÜK MOBİL EKRANLAR (480px ve altı) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px;
+  }
+
+  .navbar h1 {
+    font-size: 1.1em;
+  }
+
+  .nav-menu {
+    gap: 8px;
+  }
+
+  .nav-menu a {
+    font-size: 0.8em;
+  }
+
+  .main-container {
+    padding: 8px;
+    gap: 12px;
+  }
+
+  .content {
+    padding: 12px;
+  }
+
+  .content h2 {
+    font-size: 1.1em;
+  }
+
+  .content p {
+    font-size: 0.85em;
+  }
+
+  .box-model-container {
+    gap: 12px;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  .box h3 {
+    font-size: 0.95em;
+  }
+
+  form {
+    padding: 12px;
+  }
+
+  label {
+    font-size: 0.85em;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .sidebar-box {
+    padding: 12px;
+  }
+
+  .sidebar-box h3 {
+    font-size: 0.95em;
+  }
+
+  .sidebar-box p {
+    font-size: 0.8em;
+  }
+}
