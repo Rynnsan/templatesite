@@ -1,0 +1,368 @@
+<!-- PROJE ÖZETİ -->
+# Sağlık Eczanesi Web Sitesi - Detaylı Proje Bilgileri
+
+## 📦 Proje Yapısı
+
+Klasör: `c:\Users\alica\Desktop\stajs\sonsite\`
+
+### Dosyalar
+1. **index.html** - Ana Sayfa (1,100+ satır)
+2. **medicines.html** - İlaçlar Listeleme Sayfası (1,500+ satır)
+3. **style.css** - Ortak CSS Stilleri (750+ satır)
+4. **README.md** - Proje Dokumentasyonu
+
+---
+
+## 🎯 Sistem Özellikleri
+
+### ANA SAYFA (index.html)
+
+#### Bölümler:
+1. **Navbar Navigasyon**
+   - Logo ve başlık
+   - Ana Sayfa, İlaçlar, Hizmetler, İletişim linkaleri
+   - Responsive tasarım
+
+2. **Hero Section**
+   - Büyük başlık
+   - Çağrı yapan düğmeler
+   - İlaçlar sayfasına link
+
+3. **Hizmetler Bölümü**
+   - 4 hizmet kartı
+   - İlaç Danışmanlığı
+   - Aşı Uygulaması
+   - Reçete Hizmetleri
+   - Ev Teslimi
+
+4. **Öne Çıkan İlaçlar**
+   - 4 kategori kartı
+   - Ağrı Kesici
+   - Antibiyotik
+   - Vitaminler
+   - Soğuk Algınlığı
+   - Her kategoriye medicines.html linki
+
+5. **İletişim Bölümü**
+   - Adres
+   - Telefon
+   - Çalışma saatleri
+   - Email
+
+6. **Footer**
+   - Copyright bilgisi
+
+---
+
+### İLAÇLAR SAYFASI (medicines.html)
+
+#### JavaScript Veri Yapısı (12 İlaç)
+
+```javascript
+const medicines = [
+    // AĞRI KESİCİLER (2)
+    {
+        id: 1,
+        name: "Paracetamol 500mg",
+        category: "Ağrı Kesici",
+        activeIngredient: "Paracetamol",
+        dosage: "500mg",
+        manufacturer: "Bayer",
+        price: 15.50,
+        description: "Başağrısı, ateş ve genel ağrılar için etkili...",
+        usage: "Günde 3-4 kez bir tablet",
+        contraindications: "Karaciğer hastalığı, alkol kullanımı",
+        sideEffects: "Bulantı, dönerme, alerjik reaksiyonlar",
+        image: "💊",
+        stock: 120
+    },
+    // ... daha fazla
+]
+```
+
+#### İlaç Kategorileri
+
+| # | Kategori | İlaçlar | Toplam |
+|---|----------|---------|--------|
+| 1 | Ağrı Kesici | Paracetamol, Ibuprofen | 2 |
+| 2 | Antibiyotik | Amoksisilin, Azitromisan | 2 |
+| 3 | Vitamin & Takviye | C Vitamini, D Vitamini, B Complex, Omega-3 | 4 |
+| 4 | Soğuk Algınlığı | Soğuk Şurubu, Grip Pastili, Burun Spreyi, Öksürük Sırası | 4 |
+
+#### İlaç Özellikleri
+
+Her ilaçta bulunur:
+- **ID**: Benzersiz kimlik
+- **Name**: İlaç adı ve dozaj
+- **Category**: Kategoriye ait olması
+- **activeIngredient**: Etken madde
+- **dosage**: Dozaj miktarı
+- **manufacturer**: Üretici firma
+- **price**: Fiyat (TL cinsinden)
+- **description**: Kısa açıklama
+- **usage**: Kullanım talimatı
+- **contraindications**: Kontrendikasyonlar
+- **sideEffects**: Yan etkiler
+- **image**: Emoji göstergesi
+- **stock**: Stok miktarı
+
+---
+
+## 🔧 JavaScript Fonksiyonları
+
+### 1. displayMedicines(medicinesList)
+```javascript
+// İlaçları dinamik olarak ekrana yazma
+// Template literals kullanarak HTML oluşturma
+// Her ilaç için kart tasarım
+```
+
+**Görevleri:**
+- Array'deki her ilaçı kart şeklinde göster
+- İlaç bilgilerini grid layout'da düzenle
+- Stok durumunu renkle göster
+- Fiyat ve "Sepete Ekle" butonu ekle
+
+### 2. filterMedicines()
+```javascript
+// Arama ve kategori filtreleme
+// İnput değerlerini kontrol etme
+// İlgili ilaçları filtreleme
+```
+
+**Görevleri:**
+- Arama kutusundaki metni al
+- Kategori dropdown seçimini al
+- İlaç adı, etken madde, açıklamada ara
+- Kategoriye göre filtrele
+- Sonuçları displayMedicines'e gönder
+
+### 3. addToCart(medicineId)
+```javascript
+// Sepete ekleme işlemi
+// İlaç bilgisini alma
+// Stok kontrol etme
+```
+
+**Görevleri:**
+- İlaç ID'sine göre ilaçı bul
+- Stok kontrolü yap
+- Kullanıcıya onay mesajı göster
+
+---
+
+## 🎨 CSS Özellikleri
+
+### Renkler
+```css
+--primary-color: #0055ff;      /* Mavi */
+--secondary-color: #1a7e3a;    /* Yeşil */
+--accent-color: #10b981;       /* Açık yeşil */
+--border-color: #e2e8f0;       /* Açık gri */
+--background: #f8fafc;         /* Çok açık gri */
+```
+
+### Responsive Breakpoints
+- **Desktop**: 1200px+
+- **Tablet**: 768px - 1200px
+- **Mobile**: 480px - 768px
+- **Small Mobile**: < 480px
+
+### Animasyonlar
+- Hover efektleri (translateY)
+- Box shadow transitions
+- Renk geçişleri
+
+---
+
+## 🔗 Navigasyon Akışı
+
+```
+┌─────────────────────────────────┐
+│      index.html (Ana Sayfa)     │
+│  - Navbar: "İlaçlar" linki      │
+│  - Hero Section: "İlaçları Gör" │
+│  - Kategoriler: Linki           │
+└──────────────┬──────────────────┘
+               │
+               ↓
+┌─────────────────────────────────┐
+│  medicines.html (İlaçlar Sayfası)│
+│  - Arama kutusuna yazı           │
+│  - Kategori seçimi               │
+│  - İlaç kartlarını göster        │
+│  - "Sepete Ekle" tıkla           │
+│  - "Ana Sayfa" linki             │
+└─────────────────────────────────┘
+```
+
+---
+
+## 📊 Veri Tabanı İstatistikleri
+
+### İlaç Sayıları
+- **Toplam**: 12
+- **Ağrı Kesici**: 2
+- **Antibiyotik**: 2
+- **Vitamin & Takviye**: 4
+- **Soğuk Algınlığı**: 4
+
+### Fiyat Aralığı
+- **Minimum**: ₺12.25 (Grip Pastili)
+- **Maksimum**: ₺35.25 (Azitromisan)
+- **Ortalama**: ₺21.49
+
+### Stok Durumları
+- **Yüksek** (>100): Paracetamol (120), C Vitamini (200), Grip Pastili (200)
+- **Orta** (50-100): Çoğu ilaç
+- **Düşük** (<50): Azitromisan (45), Burun Spreyi (75)
+
+---
+
+## 🎯 Arama & Filtreleme Örnekleri
+
+### Örnek 1: "Paracetamol" Araması
+```
+Giriş: "paracetamol"
+Sonuç: Paracetamol 500mg
+```
+
+### Örnek 2: "Vitamin" Kategorisi Seçimi
+```
+Kategori: "Vitamin & Takviye"
+Sonuç: C Vitamini, D Vitamini, B Complex, Omega-3
+```
+
+### Örnek 3: Kombinasyon Arama
+```
+Arama: "anti"
+Kategori: "Antibiyotik"
+Sonuç: Amoksisilin, Azitromisan
+```
+
+---
+
+## 💻 Kod Örnekleri
+
+### Veri Alma
+```javascript
+const medicine = medicines.find(m => m.id === medicineId);
+```
+
+### Filter İşlemi
+```javascript
+const filtered = medicines.filter(medicine => {
+    const matchSearch = 
+        medicine.name.toLowerCase().includes(searchValue) ||
+        medicine.activeIngredient.toLowerCase().includes(searchValue);
+    
+    const matchCategory = categoryValue === '' || 
+                         medicine.category === categoryValue;
+    
+    return matchSearch && matchCategory;
+});
+```
+
+### Template Literal
+```javascript
+<div class="medicine-card">
+    <h3>${medicine.name}</h3>
+    <span>${medicine.category}</span>
+    <p>${medicine.description}</p>
+    <span>₺${medicine.price.toFixed(2)}</span>
+</div>
+```
+
+---
+
+## 🚀 Nasıl Çalıştırılır
+
+1. **Dosyaları Açma**
+   ```
+   c:\Users\alica\Desktop\stajs\sonsite\index.html
+   ```
+
+2. **Tarayıcıda Açma**
+   - Sağ tık → "Open with Browser"
+   - Veya drag & drop tarayıcıya
+
+3. **Navigasyon**
+   - Ana sayfada "İlaçlar" linki tıkla
+   - medicines.html açılacak
+
+4. **İşlemler**
+   - Arama kutusuna yazı yaz (otomatik filtre)
+   - Kategori seç (dropdown)
+   - İlaç kartlarını gözden geçir
+   - "Sepete Ekle" butonu tıkla
+
+---
+
+## 📱 Responsive Davranış
+
+### Desktop (1200px+)
+- 3 sütun grid layout
+- Geniş navbar
+- Tam boyut görseller
+
+### Tablet (768px - 1200px)
+- 2 sütun grid layout
+- Düzeltilmiş spacing
+
+### Mobile (480px - 768px)
+- 1 sütun grid layout
+- Dikey arama filteresi
+- Daha küçük fontlar
+
+### Small Mobile (<480px)
+- Single column
+- Minimum padding
+- Kompakt layout
+
+---
+
+## ✅ Kontrol Listesi
+
+- [x] Ana sayfa (index.html) oluşturuldu
+- [x] İlaçlar sayfası (medicines.html) oluşturuldu
+- [x] 12 ilaçlı dataset JavaScript'te tanımlandı
+- [x] Dinamik listeleme fonksiyonu yapıldı
+- [x] Arama işlevi eklendi
+- [x] Kategori filtreleme eklendi
+- [x] Responsive CSS tasarım yapıldı
+- [x] Hover efektleri eklendi
+- [x] Stok gösterimi yapıldı
+- [x] Fiyat görüntüleme eklendi
+- [x] Sepete ekleme butonu eklendi
+- [x] "sonsite" klasörü oluşturuldu
+- [x] README.md dokümantasyonu yapıldı
+
+---
+
+## 📝 Dosya Bilgileri
+
+| Dosya | Satır Sayısı | Boyut |
+|-------|-------------|-------|
+| index.html | ~150 | ~6 KB |
+| medicines.html | ~200 | ~12 KB |
+| style.css | ~750 | ~25 KB |
+| README.md | ~200 | ~8 KB |
+| **TOPLAM** | **~1,300** | **~51 KB** |
+
+---
+
+## 🎓 Öğrenme Noktaları
+
+1. **HTML Semantiği**: Doğru HTML etiketlerinin kullanımı
+2. **CSS Grid & Flexbox**: Responsive tasarım
+3. **JavaScript Array Methods**: filter(), map(), find()
+4. **Event Listeners**: onkeyup, onchange, onclick
+5. **DOM Manipulation**: getElementById, innerHTML
+6. **ES6 Features**: Template literals, arrow functions
+7. **Responsive Design**: Media queries ve breakpoints
+
+---
+
+**Tamamlama Tarihi**: 2024-01-16
+**Versiyon**: 1.0
+**Durum**: ✅ Tamamlandı

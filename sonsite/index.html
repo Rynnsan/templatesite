@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sağlık Eczanesi - Güvenilir Sağlık Danışmanınız</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      /* Custom Tailwind Configuration */
+      :root {
+        --primary-color: #1a7e3a;
+        --secondary-color: #0d5e2d;
+        --soft-green: #10b981;
+        --light-bg: #f8fafc;
+        --dark-text: #1e293b;
+        --border-light: #e2e8f0;
+      }
+
+      /* Smooth Transitions */
+      * {
+        transition: all 0.3s ease;
+      }
+
+      /* Hero Gradient */
+      .hero-gradient {
+        background: linear-gradient(135deg, #1a7e3a 0%, #0d5e2d 100%);
+      }
+
+      /* Card Hover Effect */
+      .card-hover {
+        transform: translateY(0);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(26, 126, 58, 0.15);
+      }
+
+      /* Button Styles */
+      .btn-primary {
+        background: linear-gradient(135deg, #1a7e3a 0%, #0d5e2d 100%);
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.75rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(26, 126, 58, 0.25);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(26, 126, 58, 0.35);
+        color: white;
+      }
+
+      .btn-secondary {
+        background: white;
+        color: #1a7e3a;
+        border: 2px solid #1a7e3a;
+        font-weight: 600;
+        padding: 0.75rem 1.75rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-secondary:hover {
+        background: #1a7e3a;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <!-- ============================================ -->
+    <!-- HEADER / NAV SECTION -->
+    <!-- ============================================ -->
+    <header
+      class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center text-white font-bold text-lg"
+            >
+              💊
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-gray-900">Sağlık Eczanesi</h1>
+              <p class="text-xs text-gray-500">Güvenilir Sağlık Danışmanınız</p>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              href="#hizmetler"
+              class="text-gray-700 hover:text-green-600 font-medium"
+              >Hizmetler</a
+            >
+            <a
+              href="medicines.html"
+              class="text-gray-700 hover:text-green-600 font-medium"
+              >İlaçlar</a
+            >
+            <a
+              href="#rehber"
+              class="text-gray-700 hover:text-green-600 font-medium"
+              >Rehber</a
+            >
+            <a
+              href="#iletisim"
+              class="text-gray-700 hover:text-green-600 font-medium"
+              >İletişim</a
+            >
+          </nav>
+
+          <!-- Contact Info & CTA -->
+          <div class="hidden lg:flex items-center gap-6">
+            <div class="text-right">
+              <p class="text-xs text-gray-500">Acil Hatt</p>
+              <p class="text-lg font-bold text-green-600">(212) 555-1234</p>
+            </div>
+            <a href="medicines.html" class="btn-primary">İlaçları Gör</a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden" onclick="toggleMobileMenu()">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="hero-gradient text-white py-20 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="space-y-8">
+            <div>
+              <h2 class="text-5xl lg:text-6xl font-bold mb-4">
+                Sağlığınız Bizim Önceliğimiz
+              </h2>
+              <p class="text-xl text-green-100">
+                Kaliteli ilaçlar ve güvenilir sağlık hizmetleri ile her zaman
+                yanınızda
+              </p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="medicines.html"
+                class="btn-primary bg-white text-green-600 hover:bg-gray-100"
+              >
+                İlaçları Keşfet
+              </a>
+              <a
+                href="#iletisim"
+                class="btn-secondary border-white text-white hover:bg-white hover:text-green-600"
+              >
+                Bize Ulaşın
+              </a>
+            </div>
+
+            <!-- Info Stats -->
+            <div class="grid grid-cols-3 gap-4 pt-8 border-t border-green-400">
+              <div>
+                <p class="text-3xl font-bold">25+</p>
+                <p class="text-sm text-green-100">Yıl Tecrübe</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold">12</p>
+                <p class="text-sm text-green-100">İlaç Kategorisi</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold">10K+</p>
+                <p class="text-sm text-green-100">Memnun Müşteri</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Image Placeholder -->
+          <div class="relative">
+            <div
+              class="bg-green-400 bg-opacity-30 rounded-2xl p-12 h-96 flex items-center justify-center"
+            >
+              <div class="text-center text-green-200">
+                <div class="text-7xl mb-4">💊🏥🩺</div>
+                <p>Profesyonel Sağlık Hizmeti</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SERVICES SECTION -->
+    <!-- ============================================ -->
+    <section id="hizmetler" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Hizmetlerimiz</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Eczanemizde size sunduğumuz profesyonel sağlık hizmetleri
+          </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service Card 1 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl">💉</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+              İlaç Danışmanlığı
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Uzman eczacılarımız tarafından kişiye özel ilaç danışmanlığı ve
+              tedavi önerileri
+            </p>
+            <a
+              href="medicines.html"
+              class="text-green-600 font-semibold hover:text-green-700 flex items-center gap-2"
+            >
+              İlaçları Gör
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl">🩺</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+              Aşı Uygulaması
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Hijyenik ortamda güvenli ve etkili aşı uygulamaları
+            </p>
+            <a
+              href="#iletisim"
+              class="text-green-600 font-semibold hover:text-green-700 flex items-center gap-2"
+            >
+              Danışma Yap
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl">📋</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+              Reçete İşlemleri
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Hızlı, güvenilir ve doktor tarafından onaylı reçete işlemleri
+            </p>
+            <a
+              href="#iletisim"
+              class="text-green-600 font-semibold hover:text-green-700 flex items-center gap-2"
+            >
+              İletişime Geç
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl">🚚</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Ev Teslimi</h3>
+            <p class="text-gray-600 mb-6">
+              Kapıda teslim hizmeti ile rahatça evde ilaç alışverişi
+              yapabilirsiniz
+            </p>
+            <a
+              href="#iletisim"
+              class="text-green-600 font-semibold hover:text-green-700 flex items-center gap-2"
+            >
+              Sipariş Ver
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl">🏥</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+              Nöbetçi Hizmet
+            </h3>
+            <p class="text-gray-600 mb-6">
+              7/24 nöbetçi eczane hizmeti ile her zaman yanınızda oluyoruz
+            </p>
+            <a
+              href="#iletisim"
+              class="text-green-600 font-semibold hover:text-green-700 flex items-center gap-2"
+            >
+              Nöbetçi Eczane
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service Card 6 -->
+          <div
+            class="card-hover bg-white rounded-xl p-8 border border-gray-200"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl">📞</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">
+              Telefon Danışması
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Telefonla uzmanlarımızdan ücretsiz sağlık danışmanlığı
+              alabilirsiniz
+            </p>
+            <a
+              href="#iletisim"
+              class="text-green-600 font-semibold hover:text-green-700 flex items-center gap-2"
+            >
+              Bizi Arayın
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FEATURED MEDICINES SECTION -->
+    <!-- ============================================ -->
+    <section id="ilaclar" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Öne Çıkan İlaçlar
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Eczanemizde en çok tercih edilen ilaç kategorileri
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Featured 1 -->
+          <a
+            href="medicines.html"
+            class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200"
+          >
+            <div class="text-4xl mb-4">💊</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Ağrı Kesiciler
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Başağrısı, kas ağrıları ve ateş düşürücüler
+            </p>
+            <span class="text-blue-600 font-semibold">Detaylar →</span>
+          </a>
+
+          <!-- Featured 2 -->
+          <a
+            href="medicines.html"
+            class="card-hover bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200"
+          >
+            <div class="text-4xl mb-4">💉</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Antibiyotikler
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Enfeksiyonlar ve bakteriyel hastalıklar için
+            </p>
+            <span class="text-green-600 font-semibold">Detaylar →</span>
+          </a>
+
+          <!-- Featured 3 -->
+          <a
+            href="medicines.html"
+            class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200"
+          >
+            <div class="text-4xl mb-4">🟠</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Vitaminler</h3>
+            <p class="text-gray-600 mb-4">
+              İmmün sistemi güçlendirme ve beslenme takviyesi
+            </p>
+            <span class="text-yellow-600 font-semibold">Detaylar →</span>
+          </a>
+
+          <!-- Featured 4 -->
+          <a
+            href="medicines.html"
+            class="card-hover bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 border border-red-200"
+          >
+            <div class="text-4xl mb-4">🧴</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Soğuk Algınlığı
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Grip, öksürük ve burun tıkanıklığı için çözüm
+            </p>
+            <span class="text-red-600 font-semibold">Detaylar →</span>
+          </a>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="medicines.html" class="btn-primary">Tüm İlaçları Gör</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- HEALTH GUIDE SECTION -->
+    <!-- ============================================ -->
+    <section id="rehber" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Sağlık Rehberi</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Sağlık konularında detaylı bilgi ve tavsiyeler
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Guide Card 1 -->
+          <article
+            class="card-hover bg-white rounded-xl overflow-hidden border border-gray-200"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
+            >
+              <div class="text-5xl">🩺</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Doğru İlaç Kullanımı
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                İlaçları nasıl ve ne zaman kullanmanız gerektiği hakkında
+                kapsamlı rehber
+              </p>
+              <a href="#" class="text-blue-600 font-semibold text-sm">Oku →</a>
+            </div>
+          </article>
+
+          <!-- Guide Card 2 -->
+          <article
+            class="card-hover bg-white rounded-xl overflow-hidden border border-gray-200"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center"
+            >
+              <div class="text-5xl">💪</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Sağlıklı Yaşam
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Günlük yaşamda sağlığınızı korumak için öneriler ve ipuçları
+              </p>
+              <a href="#" class="text-green-600 font-semibold text-sm">Oku →</a>
+            </div>
+          </article>
+
+          <!-- Guide Card 3 -->
+          <article
+            class="card-hover bg-white rounded-xl overflow-hidden border border-gray-200"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center"
+            >
+              <div class="text-5xl">🏃</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Beslenme Rehberi
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Dengeli beslenme ve vitamin alımı hakkında detaylı bilgiler
+              </p>
+              <a href="#" class="text-purple-600 font-semibold text-sm"
+                >Oku →</a
+              >
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#" class="btn-primary">Daha Fazla Rehber</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTACT & MAP SECTION -->
+    <!-- ============================================ -->
+    <section id="iletisim" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-gray-900 mb-16 text-center">
+          Bize Ulaşın
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Contact Info -->
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                İletişim Bilgileri
+              </h3>
+              <p class="text-gray-600">
+                Sorularınız, önerileriniz ve talepleriniz için bize
+                ulaşabilirsiniz.
+              </p>
+            </div>
+
+            <!-- Contact Cards -->
+            <div class="space-y-6">
+              <!-- Address -->
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="text-xl">📍</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-gray-900 mb-1">Adres</h4>
+                  <p class="text-gray-600">
+                    Cumhuriyet Cad. No: 45<br />
+                    Beyoğlu, İstanbul 34350
+                  </p>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="text-xl">📞</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-gray-900 mb-1">Telefon</h4>
+                  <p class="text-gray-600">
+                    Acil:
+                    <span class="font-bold text-green-600">(212) 555-1234</span
+                    ><br />
+                    Danışma:
+                    <span class="font-bold text-green-600">(212) 555-1235</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="text-xl">📧</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-gray-900 mb-1">Email</h4>
+                  <p class="text-gray-600">
+                    info@saglikeczanesi.com<br />
+                    destek@saglikeczanesi.com
+                  </p>
+                </div>
+              </div>
+
+              <!-- Hours -->
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="text-xl">🕐</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-gray-900 mb-1">
+                    Çalışma Saatleri
+                  </h4>
+                  <p class="text-gray-600">
+                    Pazartesi - Pazar<br />
+                    <span class="font-bold">08:00 - 22:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div
+            class="rounded-xl overflow-hidden border border-gray-200 h-96 lg:h-auto"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.8174341850556!2d29.04135!3d41.04158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7649f0b9cad%3A0xc1f5dd6c5c0c0b0!2sBeyo%C4%9Flu%2C%20%C4%B0stanbul!5e0!3m2!1str!2str!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <!-- Brand -->
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center text-white font-bold"
+              >
+                💊
+              </div>
+              <h3 class="text-xl font-bold">Sağlık Eczanesi</h3>
+            </div>
+            <p class="text-gray-400 text-sm">
+              Kaliteli ilaçlar ve güvenilir sağlık hizmetleri sunan profesyonel
+              eczane
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="font-bold mb-4">Hızlı Linkler</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                <a href="index.html" class="hover:text-white transition"
+                  >Ana Sayfa</a
+                >
+              </li>
+              <li>
+                <a href="medicines.html" class="hover:text-white transition"
+                  >İlaçlar</a
+                >
+              </li>
+              <li>
+                <a href="#hizmetler" class="hover:text-white transition"
+                  >Hizmetler</a
+                >
+              </li>
+              <li>
+                <a href="#iletisim" class="hover:text-white transition"
+                  >İletişim</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 class="font-bold mb-4">Hizmetlerimiz</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >İlaç Danışmanlığı</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Aşı Uygulaması</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition">Ev Teslimi</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Nöbetçi Hizmet</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Hours -->
+          <div>
+            <h4 class="font-bold mb-4">Çalışma Saatleri</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                Pazartesi - Cumartesi<br /><span class="font-bold"
+                  >08:00 - 22:00</span
+                >
+              </li>
+              <li>Pazar<br /><span class="font-bold">09:00 - 22:00</span></li>
+              <li class="pt-2 text-green-400 font-bold">Nöbetçi: 24/7</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">
+              &copy; 2024 Sağlık Eczanesi. Tüm Hakları Saklıdır.
+            </p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                >Facebook</a
+              >
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                >Instagram</a
+              >
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                >Twitter</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================ -->
+    <script>
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        console.log("Mobile menu toggle");
+      }
+
+      // Initialize Lucide Icons
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

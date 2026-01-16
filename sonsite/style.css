@@ -1,0 +1,25 @@
+/* ===============================================
+   MODERN TASARIM - TAILWIND CSS CDN KULLANILMAKTADIR
+   =============================================== */
+
+/* Bu proje Tailwind CSS CDN kullanımaktadır.
+   Tüm stil HTML dosyalarında inline veya Tailwind sınıfları ile tanımlanmıştır.
+   
+   index.html ve medicines.html dosyalarına bkz.
+   Her dosya kendi CSS tanımlamalarını içerir.
+*/
+
+/* Temel renkler (referans için) */
+:root {
+  --primary-green: #1a7e3a;
+  --secondary-green: #0d5e2d;
+  --light-green: #10b981;
+  --dark-text: #1e293b;
+  --light-text: #64748b;
+  --border-color: #e2e8f0;
+}
+
+/* Smooth scroll davranışı */
+html {
+  scroll-behavior: smooth;
+}

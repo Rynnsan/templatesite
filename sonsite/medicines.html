@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İlaçlar - Sağlık Eczanesi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .btn-primary {
+        background: linear-gradient(135deg, #1a7e3a 0%, #0d5e2d 100%);
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.75rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(26, 126, 58, 0.25);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(26, 126, 58, 0.35);
+        color: white;
+      }
+
+      .medicine-card {
+        transition: all 0.3s ease;
+      }
+
+      .medicine-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(26, 126, 58, 0.15);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <!-- NAVBAR -->
+    <header
+      class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center text-white font-bold text-lg"
+            >
+              💊
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-gray-900">Sağlık Eczanesi</h1>
+              <p class="text-xs text-gray-500">Güvenilir Sağlık Danışmanınız</p>
+            </div>
+          </div>
+
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              href="index.html"
+              class="text-gray-700 hover:text-green-600 font-medium"
+              >Ana Sayfa</a
+            >
+            <a
+              href="medicines.html"
+              class="text-green-600 hover:text-green-700 font-medium"
+              >İlaçlar</a
+            >
+            <a
+              href="index.html#hizmetler"
+              class="text-gray-700 hover:text-green-600 font-medium"
+              >Hizmetler</a
+            >
+            <a
+              href="index.html#iletisim"
+              class="text-gray-700 hover:text-green-600 font-medium"
+              >İletişim</a
+            >
+          </nav>
+
+          <a href="index.html" class="btn-primary">Ana Sayfa</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- İLAÇLAR SAYFASI BAŞLIK -->
+    <section
+      class="bg-gradient-to-r from-green-600 to-green-400 text-white py-12"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold mb-2">İlaç Kataloğu</h1>
+        <p class="text-green-100">
+          Eczanemizin tüm ilaçları ve detaylı bilgileri
+        </p>
+      </div>
+    </section>
+
+    <!-- ARAMA VE FİLTRELEME -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row gap-6 mb-12">
+          <div class="flex-1">
+            <input
+              type="text"
+              id="searchInput"
+              class="w-full px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+              placeholder="İlaç adı veya etken madde ile ara..."
+              onkeyup="filterMedicines()"
+            />
+          </div>
+          <div>
+            <select
+              id="categoryFilter"
+              class="px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+              onchange="filterMedicines()"
+            >
+              <option value="">Tüm Kategoriler</option>
+              <option value="Ağrı Kesici">Ağrı Kesici</option>
+              <option value="Antibiyotik">Antibiyotik</option>
+              <option value="Vitamin & Takviye">Vitamin & Takviye</option>
+              <option value="Soğuk Algınlığı">Soğuk Algınlığı</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- İLAÇLAR CONTAINER -->
+        <div
+          id="medicinesContainer"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        ></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <p class="text-gray-400">
+            &copy; 2024 Sağlık Eczanesi. Tüm Hakları Saklıdır.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ==========================================
+      // İLAÇ DATASETİ
+      // ==========================================
+      const medicines = [
+        {
+          id: 1,
+          name: "Paracetamol 500mg",
+          category: "Ağrı Kesici",
+          activeIngredient: "Paracetamol",
+          dosage: "500mg",
+          manufacturer: "Bayer",
+          price: 15.5,
+          description:
+            "Başağrısı, ateş ve genel ağrılar için etkili bir ağrı kesici.",
+          usage: "Günde 3-4 kez bir tablet",
+          contraindications: "Karaciğer hastalığı, alkol kullanımı",
+          sideEffects: "Bulantı, dönerme, alerjik reaksiyonlar (nadir)",
+          image: "💊",
+          stock: 120,
+        },
+        {
+          id: 2,
+          name: "Ibuprofen 400mg",
+          category: "Ağrı Kesici",
+          activeIngredient: "Ibuprofen",
+          dosage: "400mg",
+          manufacturer: "Advil",
+          price: 22.0,
+          description: "Ruh halini bozan ağrılar, kas ağrıları ve ateş için.",
+          usage: "Günde 2-3 kez bir tablet, yemekle birlikte",
+          contraindications: "Mide ülseri, böbrek hastalığı",
+          sideEffects: "Mide rahatsızlığı, baş dönmesi",
+          image: "💊",
+          stock: 156,
+        },
+        {
+          id: 3,
+          name: "Amoksisilin 250mg",
+          category: "Antibiyotik",
+          activeIngredient: "Amoksisilin",
+          dosage: "250mg",
+          manufacturer: "Sandoz",
+          price: 28.75,
+          description:
+            "Bacterial enfeksiyonlar ve üst solunum yolu enfeksiyonları için.",
+          usage: "Günde 3 kez, doktor önerisi üzerine",
+          contraindications: "Penisilin alerjisi, mononükleozu",
+          sideEffects: "Diyare, dönerme, alerjik reaksiyonlar",
+          image: "💉",
+          stock: 85,
+        },
+        {
+          id: 4,
+          name: "Azitromisan 500mg",
+          category: "Antibiyotik",
+          activeIngredient: "Azitromisan",
+          dosage: "500mg",
+          manufacturer: "Pfizer",
+          price: 35.25,
+          description:
+            "Geniş spektrumlu antibiyotik, çeşitli enfeksiyonlarda kullanılır.",
+          usage: "Günde 1 kez, doktor tarafından belirtildiği şekilde",
+          contraindications: "Makrolid alerjisi, karaciğer hastalığı",
+          sideEffects: "Karın ağrısı, diyare, bulantı",
+          image: "💉",
+          stock: 45,
+        },
+        {
+          id: 5,
+          name: "C Vitamini 1000mg",
+          category: "Vitamin & Takviye",
+          activeIngredient: "Askorbik Asit",
+          dosage: "1000mg",
+          manufacturer: "Nature's Way",
+          price: 18.5,
+          description:
+            "İmmün sistemi güçlendiren ve antioksidan etkisi olan vitamin.",
+          usage: "Günde 1 tablet, sabahleyin",
+          contraindications: "Böbrek taşı öyküsü",
+          sideEffects: "Nadiren mide rahatsızlığı",
+          image: "🟠",
+          stock: 200,
+        },
+        {
+          id: 6,
+          name: "D Vitamini 2000IU",
+          category: "Vitamin & Takviye",
+          activeIngredient: "Kolekalsiferol",
+          dosage: "2000IU",
+          manufacturer: "Solaray",
+          price: 21.0,
+          description:
+            "Kemik sağlığı ve kalsiyum emilimi için gerekli vitamin.",
+          usage: "Günde 1 tablet",
+          contraindications: "Hiperkalsemi (yüksek kalsiyum)",
+          sideEffects: "Nadiren baş ağrısı",
+          image: "🟡",
+          stock: 180,
+        },
+        {
+          id: 7,
+          name: "B Complex Vitamin",
+          category: "Vitamin & Takviye",
+          activeIngredient: "B1, B2, B3, B5, B6, B12",
+          dosage: "Çok Bileşenli",
+          manufacturer: "Centrum",
+          price: 24.99,
+          description: "Enerji metabolizması ve sinir sistemi için şarttır.",
+          usage: "Günde 1 tablet, kahvaltı sırasında",
+          contraindications: "Nadir alerji durumları",
+          sideEffects: "Genellikle yan etki yok",
+          image: "💊",
+          stock: 150,
+        },
+        {
+          id: 8,
+          name: "Omega-3 Fish Oil",
+          category: "Vitamin & Takviye",
+          activeIngredient: "Fish Oil (EPA, DHA)",
+          dosage: "1000mg",
+          manufacturer: "Nature Made",
+          price: 32.5,
+          description:
+            "Kalp ve beyin sağlığı için iyileştirici besinsel takviye.",
+          usage: "Günde 1-2 kapsül, yemekle",
+          contraindications: "Kan sulandırıcı kullananlar dikkatli olmalı",
+          sideEffects: "Balık tadında ağız tadı (nadir)",
+          image: "🔵",
+          stock: 95,
+        },
+        {
+          id: 9,
+          name: "Soğuk Algınlığı Şurubu",
+          category: "Soğuk Algınlığı",
+          activeIngredient: "Fenileframin + Parasetamol",
+          dosage: "Şurup 120ml",
+          manufacturer: "Coldrex",
+          price: 14.75,
+          description:
+            "Soğuk algınlığı semptomları, öksürük ve burun tıkanıklığı için.",
+          usage: "Her 4-6 saatte bir, 10ml",
+          contraindications: "Hipertansiyon, karaciğer hastalığı",
+          sideEffects: "Uyku halesi, baş dönmesi",
+          image: "🧴",
+          stock: 110,
+        },
+        {
+          id: 10,
+          name: "Grip Pastili",
+          category: "Soğuk Algınlığı",
+          activeIngredient: "Vitamin C + Seneki Çayı",
+          dosage: "Pastil 20'li",
+          manufacturer: "Strepsils",
+          price: 12.25,
+          description: "Boğaz ağrısı ve grip semptomları için doğal yardımcı.",
+          usage: "Günde 4-5 pastil, emdi",
+          contraindications: "Şeker hastalığı (sugar-free seçeneği vardır)",
+          sideEffects: "Nadiren alerjik reaksiyon",
+          image: "🍬",
+          stock: 200,
+        },
+        {
+          id: 11,
+          name: "Burun Spreyi",
+          category: "Soğuk Algınlığı",
+          activeIngredient: "Oksimetazolin",
+          dosage: "Sprey 10ml",
+          manufacturer: "Otrivin",
+          price: 16.5,
+          description:
+            "Burun tıkanıklığını hızlı ve etkili şekilde açan lokal sprey.",
+          usage: "Her burun deliğine 1-2 sürü, günde 3 kez",
+          contraindications: "Hipertansiyon, kalp hastalıkları",
+          sideEffects: "Burun irritasyonu, bazen tok hissi",
+          image: "💦",
+          stock: 75,
+        },
+        {
+          id: 12,
+          name: "Öksürük Sırası",
+          category: "Soğuk Algınlığı",
+          activeIngredient: "Deksometorfan",
+          dosage: "100ml",
+          manufacturer: "Prospan",
+          price: 13.99,
+          description: "Yaşlı ve yaş almış öksürükler için etkili çözüm.",
+          usage: "Günde 3 kez, 15ml",
+          contraindications: "Asma, KOAH (doktor izni gerekli)",
+          sideEffects: "Hazoloji, bazen mide rahatsızlığı",
+          image: "🧴",
+          stock: 88,
+        },
+      ];
+
+      // ==========================================
+      // İLAÇLARI SAYFA YÜKLENDIĞINDE GÖSTERMEK
+      // ==========================================
+      function displayMedicines(medicinesList) {
+        const container = document.getElementById("medicinesContainer");
+
+        if (medicinesList.length === 0) {
+          container.innerHTML =
+            '<div class="col-span-3 text-center py-12"><p class="text-gray-500 text-lg">Arama kriterlerine uygun ilaç bulunamadı.</p></div>';
+          return;
+        }
+
+        container.innerHTML = medicinesList
+          .map(
+            (medicine) => `
+                <div class="medicine-card bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl">${medicine.image}</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900">${
+                              medicine.name
+                            }</h3>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded mt-1">${
+                              medicine.category
+                            }</span>
+                            <p class="text-sm text-gray-600 mt-1">Üretici: ${
+                              medicine.manufacturer
+                            }</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-4 text-sm">
+                        <p><strong class="text-gray-700">Etken Madde:</strong> <span class="text-gray-600">${
+                          medicine.activeIngredient
+                        }</span></p>
+                        <p><strong class="text-gray-700">Dozaj:</strong> <span class="text-gray-600">${
+                          medicine.dosage
+                        }</span></p>
+                        <p><strong class="text-gray-700">Açıklama:</strong> <span class="text-gray-600">${
+                          medicine.description
+                        }</span></p>
+                        <p><strong class="text-gray-700">Kullanım:</strong> <span class="text-gray-600">${
+                          medicine.usage
+                        }</span></p>
+                        <p><strong class="text-gray-700">Kontrendikasyonlar:</strong> <span class="text-gray-600">${
+                          medicine.contraindications
+                        }</span></p>
+                        <p><strong class="text-gray-700">Yan Etkiler:</strong> <span class="text-gray-600">${
+                          medicine.sideEffects
+                        }</span></p>
+                    </div>
+                    
+                    <div class="border-t pt-4 flex items-center justify-between">
+                        <div class="space-y-1">
+                            <p class="text-2xl font-bold text-green-600">₺${medicine.price.toFixed(
+                              2
+                            )}</p>
+                            <p class="text-sm ${
+                              medicine.stock > 50
+                                ? "text-green-600 font-semibold"
+                                : medicine.stock > 0
+                                ? "text-yellow-600 font-semibold"
+                                : "text-red-600 font-semibold"
+                            }">
+                                ${
+                                  medicine.stock > 0
+                                    ? `Stok: ${medicine.stock}`
+                                    : "Stok Yok"
+                                }
+                            </p>
+                        </div>
+                        <button class="btn-primary" onclick="addToCart(${
+                          medicine.id
+                        })" ${medicine.stock === 0 ? "disabled" : ""}>
+                            ${medicine.stock > 0 ? "Sepete Ekle" : "Stok Yok"}
+                        </button>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      // ==========================================
+      // ARAMA VE FİLTRELEME FONKSİYONU
+      // ==========================================
+      function filterMedicines() {
+        const searchValue = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const categoryValue = document.getElementById("categoryFilter").value;
+
+        const filtered = medicines.filter((medicine) => {
+          const matchSearch =
+            medicine.name.toLowerCase().includes(searchValue) ||
+            medicine.activeIngredient.toLowerCase().includes(searchValue) ||
+            medicine.description.toLowerCase().includes(searchValue);
+
+          const matchCategory =
+            categoryValue === "" || medicine.category === categoryValue;
+
+          return matchSearch && matchCategory;
+        });
+
+        displayMedicines(filtered);
+      }
+
+      // ==========================================
+      // SEPETE EKLEME FONKSİYONU
+      // ==========================================
+      function addToCart(medicineId) {
+        const medicine = medicines.find((m) => m.id === medicineId);
+        if (medicine && medicine.stock > 0) {
+          alert(
+            `"${
+              medicine.name
+            }" sepete eklendi!\nFiyat: ₺${medicine.price.toFixed(2)}`
+          );
+        }
+      }
+
+      // ==========================================
+      // SAYFA YÜKLEME
+      // ==========================================
+      window.addEventListener("DOMContentLoaded", function () {
+        displayMedicines(medicines);
+        console.log("İlaç sayısı:", medicines.length);
+        console.log("Tüm ilaçlar yüklendi");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "id": 1,
+  "title": "Eczane Yönetim Sistemi",
+  "description": "İlaç satışı ve yönetimi platformu",
+  "version": "1.0.0",
+  "createdAt": "2024-01-16",
+  "pharmacies": [
+    {
+      "id": 1,
+      "name": "Sağlık Eczanesi",
+      "address": "Cumhuriyet Cad. No: 45",
+      "phone": "0212-555-1234",
+      "email": "saglik@eczane.com",
+      "city": "İstanbul",
+      "isOpen": true
+    },
+    {
+      "id": 2,
+      "name": "Başkent Eczanesi",
+      "address": "Atatürk Cad. No: 78",
+      "phone": "0312-555-5678",
+      "email": "baskent@eczane.com",
+      "city": "Ankara",
+      "isOpen": true
+    },
+    {
+      "id": 3,
+      "name": "Deniz Eczanesi",
+      "address": "Alsancak Sok. No: 23",
+      "phone": "0232-555-9012",
+      "email": "deniz@eczane.com",
+      "city": "İzmir",
+      "isOpen": false
+    }
+  ],
+  "medicines": [
+    {
+      "id": 101,
+      "pharmacyId": 1,
+      "name": "Paracetamol 500mg",
+      "activeIngredient": "Paracetamol",
+      "dosage": "500mg",
+      "price": 15.5,
+      "stock": 120,
+      "createdAt": "2024-01-10"
+    },
+    {
+      "id": 102,
+      "pharmacyId": 2,
+      "name": "Amoksisilin 250mg",
+      "activeIngredient": "Amoksisilin",
+      "dosage": "250mg",
+      "price": 28.75,
+      "stock": 85,
+      "createdAt": "2024-01-12"
+    },
+    {
+      "id": 103,
+      "pharmacyId": 1,
+      "name": "Ibuprofen 400mg",
+      "activeIngredient": "Ibuprofen",
+      "dosage": "400mg",
+      "price": 22.0,
+      "stock": 156,
+      "createdAt": "2024-01-08"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Ağrı Kesici",
+      "description": "Ağrı ve ateşi düşüren ilaçlar"
+    },
+    {
+      "id": 2,
+      "name": "Antibiyotik",
+      "description": "Enfeksiyonlar için tedavi edici ilaçlar"
+    },
+    {
+      "id": 3,
+      "name": "Vitamin & Takviye",
+      "description": "Beslenme takviyesi ve vitamin ürünleri"
+    }
+  ],
+  "settings": {
+    "theme": "light",
+    "language": "tr",
+    "notifications": true,
+    "privacy": "private",
+    "maxOrdersPerDay": 50
+  }
+}

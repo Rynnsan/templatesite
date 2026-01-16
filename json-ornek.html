@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Veri İşlemleri Örnekleri</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        color: #333;
+        margin-bottom: 30px;
+        text-align: center;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 15px;
+      }
+      .example {
+        background: white;
+        margin-bottom: 25px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #667eea;
+      }
+      .example h2 {
+        color: #667eea;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+      .example p {
+        color: #666;
+        margin-bottom: 12px;
+        font-size: 14px;
+      }
+      .code-block {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      .code-block code {
+        color: #f8f8f2;
+      }
+      .btn {
+        background-color: #667eea;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px 0;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #764ba2;
+      }
+      .output {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 15px;
+        display: none;
+        color: #333;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .output.show {
+        display: block;
+        border: 2px solid #667eea;
+        background: #f0f4ff;
+      }
+      .success {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+        padding: 12px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>JSON Veri İşlemleri Örnekleri</h1>
+
+      <!-- Örnek 1: JSON.parse -->
+      <div class="example">
+        <h2>Örnek 1: JSON.parse - JSON String'i JavaScript nesnesine Çevir</h2>
+        <p>JSON formatındaki stringi JavaScript nesnesine dönüştürme.</p>
+
+        <div class="code-block">
+          <code
+            >const jsonString = '{"id": 1, "name": "Sağlık Eczanesi", "city":
+            "İstanbul"}'; const obj = JSON.parse(jsonString);
+            console.log("Nesne:", obj); console.log("Eczane adı:",
+            obj.name);</code
+          >
+        </div>
+
+        <button class="btn" onclick="example1()">Çalıştır</button>
+        <div class="output" id="output1"></div>
+      </div>
+
+      <!-- Örnek 2: JSON.stringify -->
+      <div class="example">
+        <h2>
+          Örnek 2: JSON.stringify - JavaScript Nesnesini JSON String'ine Çevirme
+        </h2>
+        <p>JavaScript nesnesini JSON formatına dönüştürüyoruz.</p>
+
+        <div class="code-block">
+          <code
+            >const pharmacy = { id: 2, name: "Başkent Eczanesi", city: "Ankara",
+            isOpen: true }; const jsonString = JSON.stringify(pharmacy);
+            console.log("JSON String:", jsonString);</code
+          >
+        </div>
+
+        <button class="btn" onclick="example2()">Çalıştır</button>
+        <div class="output" id="output2"></div>
+      </div>
+
+      <!-- Örnek 3: Nesne Üzerinde Değişiklik -->
+      <div class="example">
+        <h2>Örnek 3: Nesne Üzerinde Değişiklik Yapma</h2>
+        <p>
+          JSON'dan nesneye çevirdikten sonra nesnenin özelliklerini
+          değiştiriyoruz.
+        </p>
+
+        <div class="code-block">
+          <code
+            >const jsonData = '{"id": 3, "name": "Deniz Eczanesi", "phone":
+            "0232-555-9012"}'; const pharmacy = JSON.parse(jsonData);
+            console.log("Orijinal:", pharmacy); // Değişiklik yap pharmacy.name
+            = "Deniz Eczanesi (Güncellenmiş)"; pharmacy.phone = "0232-555-0000";
+            console.log("Değiştirildikten sonra:", pharmacy); // Tekrar JSON'a
+            dönüştür const updatedJson = JSON.stringify(pharmacy);
+            console.log("Güncellenmiş JSON:", updatedJson);</code
+          >
+        </div>
+
+        <button class="btn" onclick="example3()">Çalıştır</button>
+        <div class="output" id="output3"></div>
+      </div>
+
+      <!-- Örnek 4: Dizi İçinde Nesne Değişikliği -->
+      <div class="example">
+        <h2>Örnek 4: Dizi İçinde Nesne Değişikliği</h2>
+        <p>İlaç dizisinde bir ilaç stokunu güncellemeliyiz.</p>
+
+        <div class="code-block">
+          <code
+            >const jsonData = '[{"id": 101, "name": "Paracetamol", "stock":
+            120}, {"id": 102, "name": "Amoksisilin", "stock": 85}]'; const
+            medicines = JSON.parse(jsonData); console.log("Orijinal İlaçlar:",
+            medicines); // Stok güncelle medicines[0].stock = 95;
+            medicines[1].stock = 50; console.log("Güncellenmiş İlaçlar:",
+            medicines); // JSON'a dönüştür const updatedJson =
+            JSON.stringify(medicines, null, 2); console.log("Güncellenmiş
+            JSON:\n" + updatedJson);</code
+          >
+        </div>
+
+        <button class="btn" onclick="example4()">Çalıştır</button>
+        <div class="output" id="output4"></div>
+      </div>
+
+      <!-- Örnek 5: Yeni Nesne Ekleme -->
+      <div class="example">
+        <h2>Örnek 5: Diziye Yeni Nesne Ekleme ve JSON'a Dönüştürme</h2>
+        <p>Eczane listesine yeni bir eczane ekliyoruz.</p>
+
+        <div class="code-block">
+          <code
+            >const jsonData = '[{"id": 1, "name": "Sağlık Eczanesi", "city":
+            "İstanbul"}, {"id": 2, "name": "Başkent Eczanesi", "city":
+            "Ankara"}]'; const pharmacies = JSON.parse(jsonData);
+            console.log("Orijinal Eczaneler:", pharmacies); // Yeni eczane ekle
+            const newPharmacy = { id: 4, name: "Marmara Eczanesi", city: "Bursa"
+            }; pharmacies.push(newPharmacy); console.log("Yeni eczane
+            eklendikten sonra:", pharmacies); // JSON'a dönüştür const finalJson
+            = JSON.stringify(pharmacies, null, 2); console.log("Final JSON:\n" +
+            finalJson);</code
+          >
+        </div>
+
+        <button class="btn" onclick="example5()">Çalıştır</button>
+        <div class="output" id="output5"></div>
+      </div>
+
+      <!-- Örnek 6: Karmaşık Nesne İşlemi -->
+      <div class="example">
+        <h2>Örnek 6: Karmaşık Nesne İşlemi (İç İçe Veri)</h2>
+        <p>
+          Eczane ve ilaçlar gibi iç içe geçmiş verileri işleyerek güncellemeler
+          yapıyoruz.
+        </p>
+
+        <div class="code-block">
+          <code
+            >const complexData = '{"pharmacy": {"id": 1, "name": "Sağlık
+            Eczanesi"}, "medicines": [{"id": 101, "name": "Paracetamol",
+            "price": 15.50}, {"id": 102, "name": "Ibuprofen", "price":
+            22.00}]}'; const data = JSON.parse(complexData);
+            console.log("Orijinal Veri:", data); // Değişiklikler yap
+            data.pharmacy.name = "Sağlık Eczanesi - Şubesi";
+            data.medicines[0].price = 14.50; data.medicines[1].price = 20.00;
+            console.log("Güncellenmiş Veri:", data); // JSON'a dönüştür const
+            updatedJson = JSON.stringify(data, null, 2); console.log("Final
+            JSON:\n" + updatedJson);</code
+          >
+        </div>
+
+        <button class="btn" onclick="example6()">Çalıştır</button>
+        <div class="output" id="output6"></div>
+      </div>
+    </div>
+
+    <script>
+      function printOutput(id, text) {
+        const output = document.getElementById(id);
+        output.textContent = text;
+        output.classList.add("show");
+      }
+
+      // Örnek 1: JSON.parse
+      function example1() {
+        let output = "";
+        const jsonString =
+          '{"id": 1, "name": "Sağlık Eczanesi", "city": "İstanbul"}';
+        output += "JSON String:\n" + jsonString + "\n\n";
+
+        const obj = JSON.parse(jsonString);
+        output += "Parse sonrası JavaScript Nesnesi:\n";
+        output += JSON.stringify(obj, null, 2) + "\n\n";
+        output += "Eczane adı: " + obj.name + "\n";
+        output += "Şehir: " + obj.city + "\n";
+
+        console.log("Nesne:", obj);
+        console.log("Eczane adı:", obj.name);
+        printOutput("output1", output);
+      }
+
+      // Örnek 2: JSON.stringify
+      function example2() {
+        let output = "";
+        const pharmacy = {
+          id: 2,
+          name: "Başkent Eczanesi",
+          city: "Ankara",
+          isOpen: true,
+        };
+        output += "JavaScript Nesnesi:\n";
+        output += JSON.stringify(pharmacy, null, 2) + "\n\n";
+
+        const jsonString = JSON.stringify(pharmacy);
+        output += "JSON String:\n" + jsonString + "\n\n";
+
+        output += "Formatlı JSON String:\n";
+        const formattedJson = JSON.stringify(pharmacy, null, 2);
+        output += formattedJson + "\n";
+
+        console.log("JSON String:", jsonString);
+        printOutput("output2", output);
+      }
+
+      // Örnek 3: Nesne Değişikliği
+      function example3() {
+        let output = "";
+        const jsonData =
+          '{"id": 3, "name": "Deniz Eczanesi", "phone": "0232-555-9012"}';
+        const pharmacy = JSON.parse(jsonData);
+
+        output += "Orijinal JSON String:\n" + jsonData + "\n\n";
+        output += "Parse sonrası Nesne:\n";
+        output += JSON.stringify(pharmacy, null, 2) + "\n\n";
+
+        // Değişiklik yap
+        pharmacy.name = "Deniz Eczanesi (Güncellenmiş)";
+        pharmacy.phone = "0232-555-0000";
+
+        output += "Değiştirildikten sonra:\n";
+        output += JSON.stringify(pharmacy, null, 2) + "\n\n";
+
+        // Tekrar JSON'a dönüştür
+        const updatedJson = JSON.stringify(pharmacy);
+        output += "Güncellenmiş JSON String:\n" + updatedJson + "\n";
+
+        console.log("Orijinal:", pharmacy);
+        console.log("Güncellenmiş JSON:", updatedJson);
+        printOutput("output3", output);
+      }
+
+      // Örnek 4: Dizi İçinde Nesne Değişikliği
+      function example4() {
+        let output = "";
+        const jsonData =
+          '[{"id": 101, "name": "Paracetamol", "stock": 120}, {"id": 102, "name": "Amoksisilin", "stock": 85}]';
+        const medicines = JSON.parse(jsonData);
+
+        output += "Orijinal JSON String:\n" + jsonData + "\n\n";
+        output += "Parse sonrası Dizi:\n";
+        output += JSON.stringify(medicines, null, 2) + "\n\n";
+
+        // Stok güncelle
+        medicines[0].stock = 95;
+        medicines[1].stock = 50;
+
+        output += "Güncellenmiş Dizi:\n";
+        output += JSON.stringify(medicines, null, 2) + "\n";
+
+        console.log("Orijinal İlaçlar:", medicines);
+        printOutput("output4", output);
+      }
+
+      // Örnek 5: Yeni Nesne Ekleme
+      function example5() {
+        let output = "";
+        const jsonData =
+          '[{"id": 1, "name": "Sağlık Eczanesi", "city": "İstanbul"}, {"id": 2, "name": "Başkent Eczanesi", "city": "Ankara"}]';
+        const pharmacies = JSON.parse(jsonData);
+
+        output += "Orijinal JSON String:\n" + jsonData + "\n\n";
+        output += "Parse sonrası Dizi:\n";
+        output += JSON.stringify(pharmacies, null, 2) + "\n\n";
+
+        // Yeni eczane ekle
+        const newPharmacy = {
+          id: 4,
+          name: "Marmara Eczanesi",
+          city: "Bursa",
+        };
+        pharmacies.push(newPharmacy);
+
+        output += "Yeni eczane eklendikten sonra:\n";
+        output += JSON.stringify(pharmacies, null, 2) + "\n";
+
+        console.log("Yeni eczane eklendikten sonra:", pharmacies);
+        printOutput("output5", output);
+      }
+
+      // Örnek 6: Karmaşık Nesne İşlemi
+      function example6() {
+        let output = "";
+        const complexData =
+          '{"pharmacy": {"id": 1, "name": "Sağlık Eczanesi"}, "medicines": [{"id": 101, "name": "Paracetamol", "price": 15.50}, {"id": 102, "name": "Ibuprofen", "price": 22.00}]}';
+        const data = JSON.parse(complexData);
+
+        output += "Orijinal JSON String:\n" + complexData + "\n\n";
+        output += "Parse sonrası Nesne:\n";
+        output += JSON.stringify(data, null, 2) + "\n\n";
+
+        // Değişiklikler yap
+        data.pharmacy.name = "Sağlık Eczanesi - Şubesi";
+        data.medicines[0].price = 14.5;
+        data.medicines[1].price = 20.0;
+
+        output += "Güncellenmiş Nesne:\n";
+        output += JSON.stringify(data, null, 2) + "\n";
+
+        console.log("Güncellenmiş Veri:", data);
+        printOutput("output6", output);
+      }
+    </script>
+  </body>
+</html>
